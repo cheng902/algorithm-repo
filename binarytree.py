@@ -11,7 +11,7 @@ root.left.left=Node(4)
 root.left.right=Node(5)
 root.right.right=Node(6)
 
-
+#iterative
 def preorder_iterative(root):
 
     s=[root]
@@ -23,6 +23,19 @@ def preorder_iterative(root):
             s.append(cur.right)
         if cur.left:
             s.append(cur.left)
-            
+
 preorder_iterative(root)
 
+#recursive
+def preorder_recursive(root):
+
+    if root==None:
+        return []
+
+    
+    l=preorder_recursive(root.left)
+    
+    r=preorder_recursive(root.right)
+    return [root.val,l[0],r[0]]
+
+print(preorder_recursive(root))
