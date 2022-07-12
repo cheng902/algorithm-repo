@@ -24,7 +24,7 @@ def preorder_iterative(root):
         if cur.left:
             s.append(cur.left)
 
-preorder_iterative(root)
+#preorder_iterative(root)
 
 #recursive
 def preorder_recursive(root):
@@ -36,6 +36,24 @@ def preorder_recursive(root):
     l=preorder_recursive(root.left)
     
     r=preorder_recursive(root.right)
-    return [root.val,l[0],r[0]]
+    return [l,root.val,r]
 
-print(preorder_recursive(root))
+#print(preorder_recursive(root))
+
+
+
+def tree_includes(root,target):
+
+    if root is None:
+        return False
+    if root.val == target:
+        return True
+    
+    l = tree_includes(root.left,target)
+    r = tree_includes(root.right,target)
+    print(l)
+    return l or r
+
+   
+print(tree_includes(root,4))
+
